@@ -66,7 +66,15 @@ public class Questions {
 	 */
 
 	public String sandwichFilling(String sandwich) {
-		return "";
+		
+		
+		String lower = sandwich.toLowerCase();
+        lower = lower.replace("bread", "");
+        StringBuilder builder = new StringBuilder(lower);
+       
+        String anything = builder.reverse().toString();
+       
+        return anything;
 	}
 
 	/**
@@ -131,7 +139,18 @@ public class Questions {
 	 * endsJava("pythoniscool") → false <br>
 	 */
 	public boolean endsJava(String input) {
-    	return false;
+		
+		String lower = input.toLowerCase();	
+		
+		if(lower.endsWith("java")) {
+			return true;
+		}
+		else {
+			return false;
+		}
+			
+//    	return false;
+    	
 	}
 
 	/**
@@ -146,6 +165,38 @@ public class Questions {
 	 * HINT: "a" == "a" if false HINT: "a".equals("a") is true
 	 */
 	public int superBlock(String input) {
+		
+		String s= input;
+		char[] a=s.toCharArray();
+		int[] arint = new int[a.length];
+		int g= 0;
+	
+		
+//			System.out.println("a: "+ a[1] +" a1: "+ a[2]);
+			int counter = 0;
+			
+			
+			for(int i = 0; i< a.length; i++) {
+				
+				if (a[i] == a[i+1]) {
+					counter++;
+					arint[g] = counter;
+					g++;
+					
+				}
+				else {
+					counter = 0;
+					
+					
+				}
+				
+//				System.out.println("asda " + arint[i]);
+				
+				
+			}
+		
+		
+		
     	return -1;
 	}
 
@@ -162,7 +213,29 @@ public class Questions {
 	 * HINT: String.toLowerCase
 	 */
 	public int amISearch(String sentence) {
-    	return -1;
+		
+		int sommin = 0;
+
+		
+		
+		String s = sentence.toLowerCase();
+		String[] words = s.split("\\s+");
+		for (int i = 0; i < words.length; i++) {
+		    words[i] = words[i].replaceAll("[^\\w]", "");
+		}
+		
+		for (int i = 0; i< words.length; i++) {
+			if (words[i].equals("am")) {
+				sommin++;
+			}
+			
+//			System.out.println(words[i]);
+			
+		}
+		
+		
+		
+    	return sommin;
 	}
 
 	/**
@@ -177,7 +250,18 @@ public class Questions {
 	 * fizzBuzz(8) → null
 	 */
 	public String fizzBuzz(int number) {
-    	return "";
+		
+		if (number%3 == 0 && number%5 != 0) {
+            return "fizz";
+        }
+       
+        if (number%3 != 0 && number%5 == 0) {
+            return "buzz";
+        }
+       
+        if (number%3 == 0 && number%5 == 0) {
+            return "fizzbuzz";           
+        }else { return null;}
 	}
 
 	/**
@@ -201,6 +285,41 @@ public class Questions {
 	 */
 
 	public int largest(String input) {
+		
+		String s = input.toLowerCase();
+		String[] words = s.split("\\s+");
+		
+		for (int i = 0; i < words.length; i++) {
+		    words[i] = words[i].replaceAll("[^\\w]", "");
+		    System.out.println("sosmossoad "+ words[i]);
+		}
+		int parsedInt = 0;
+		int parsedInt1[] = {};
+		
+//		  	int num = 321;
+//	        int sum = 0;
+//	        while (num > 0) {
+//	            sum = sum + num % 10;
+//	            num = num / 10;
+//	        }
+//	        System.out.println(sum); 
+		
+		
+		for (int l = 0; l <3; l++) {
+			System.out.println("hopefully working array ");
+			
+			
+			for (int k = 0; k<2; k++) {
+				
+				parsedInt = Integer.parseInt(String.valueOf(words[l].charAt(k)));
+				parsedInt+= parsedInt;
+				
+			}
+			
+			parsedInt1[l] = parsedInt;
+			System.out.println("parsed int :" + parsedInt);
+		}
+		
     	return -1;
 	}
 
@@ -218,6 +337,30 @@ public class Questions {
 	 * HINT: String.charAt
 	 */
 	public boolean compares(String word, int index, char letter) {
-    	return false;
+		
+		char  aChar;
+        boolean check = false;
+//        System.out.println("length: " + word.length() + " index: " + index);
+        int length = word.length()-1;
+        
+       
+        if (length == index) {
+            
+       
+        aChar = word.charAt(index-1);
+        if (aChar == letter) {
+                    check = true;
+                } else {
+                    check =  false;
+                }
+           
+        }
+        else {
+        	check = false;
+        }
+       
+        return check;
+        
+//    	return false;
 	}
 }
